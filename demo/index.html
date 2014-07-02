@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tau Demo</title>
+    <script src="../lib/shoestring-0.1.1.js"></script>
+    <script>
+      window.jQuery = window.shoestring;
+    </script>
+    <script src="../src/core.js"></script>
+    <script src="../src/path.js"></script>
+    <script src="../src/init.js"></script>
+    <link rel="stylesheet" href="../src/core.css">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body class="docs">
+    <div class="header">
+      <a href="http://filamentgroup.com/"><h1 id="fg-logo">Filament Group</h1></a>
+    </div>
+    <div class="tau-docs">
+      <p class="docs-intro">
+        This is the demo for a light-weight 360 degree image viewer called Tau. Visit the <a href="https://github.com/filamentgroup/tau">Github project page</a> for documentation.
+      </p>
+
+      <div class="tau" data-tau>
+        <img src="http://s7d9.scene7.com/is/image/LEGO/8258_s1?$PDPLarge$"
+             data-src-template="http://s7d9.scene7.com/is/image/LEGO/8258_s$FRAME?$PDPLarge$"
+             data-frames="72"></img>
+      </div>
+    </div>
+</body>
+</html>
