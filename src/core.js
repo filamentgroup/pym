@@ -1,6 +1,3 @@
-/*! enlarge - v0.1.0 - 2014-06-04
-* https://github.com/filamentgroup/enlarge
-* Copyright (c) 2014 Filament Group; Licensed MIT */
 (function( $, w ) {
 	"use strict";
 
@@ -10,6 +7,9 @@
 		if( !element ){
 			throw new Error( "Element required to initialize object" );
 		}
+
+    this.options = options = options || {};
+
 		this.element = element;
 		this.$element = $( element );
 		this.$img = this.$element.find( "img" );
@@ -17,11 +17,11 @@
 		this.scale = 1;
 		this.minScale = 1;
 		this.maxScale = 2;
-		this.scaleFactor = options && options.scaleFactor || 1;
-		this.defaultText = options && options.defaultText || "Zoom in";
-		this.zoomedText = options && options.zoomedText || "Zoom out";
-		this.classDefault = options && options.classDefault || componentName + "-in";
-		this.classZoomed= options && options.classZoomed || componentName + "-out";
+		this.scaleFactor = options.scaleFactor || 1;
+		this.defaultText = options.defaultText || "Zoom in";
+		this.zoomedText = options.zoomedText || "Zoom out";
+		this.classDefault = options.classDefault || componentName + "-in";
+		this.classZoomed = options.classZoomed || componentName + "-out";
 	};
 
 	enlarge.prototype.setScale = function( val ) {
@@ -84,18 +84,17 @@
 			.addClass( out ? this.classZoomed : this.classDefault );
 	};
 
-
 	enlarge.prototype.buttons = function(){
-		var self = this,
-			$btns = $( "<nav><button class='carousel-zoom'>" +  this.defaultText + "</button></nav>" );
+		var self, $btn;
 
-		$btns.bind( "touchend mouseup",function( e ){
+		self = this,
+		$btn = this.$element.find( "nav button" );
+
+		$btn.bind( "touchend mouseup",function( e ){
 			e = e.originalEvent || e;
 			self.toggleZoom();
 			e.preventDefault();
-		} );
-
-		$btns.appendTo( this.element );
+		});
 	};
 
 	enlarge.prototype.isActive = function(){
@@ -154,34 +153,6 @@
 		this.gestures();
 	};
 
-	(w.componentNamespace = w.componentNamespace || w)[ componentName ] = enlarge;
+  // TODO sort out the naming discrepancy in here
+	(w.componentNamespace = w.componentNamespace || w)[ "Pym" ] = enlarge;
 }( jQuery, this ));
-
-
-/*
- * enlarge plugin
- *
- * Copyright (c) 2013 Filament Group, Inc.
- * Licensed under MIT
- */
-
-/* global enlarge:true */
-(function( enlarge, $, window, undefined ) {
-
-	var pluginName = "enlarge",
-		initSelector = "." + pluginName;
-
-	$.fn[ pluginName ] = function(){
-		return this.each(function(){
-			var widget =  new window.componentNamespace[ pluginName ]( this );
-			$( this ).data( pluginName, widget );
-			widget.init();
-		});
-	};
-
-	// auto-init on enhance (which is called on domready)
-	$( document ).bind( "enhance", function( e ){
-		$( initSelector, e.target )[ pluginName ]();
-	});
-
-}( enlarge, jQuery, this ));

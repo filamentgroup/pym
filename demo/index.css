@@ -22,28 +22,6 @@ body {
   font-size: 100%;
 }
 
-.tau-docs {
-  margin: 1em auto;
-  max-width: 46em;
-}
-
-.tau {
-  border: 3px solid #ccc;
-  margin-bottom: 2em;
-  position: relative;
-}
-
-.tau img {
-  width: 100%;
-}
-
-.tau .loading {
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  top: 0;
-}
-
 h1.docs,
 h2.docs,
 h3.docs,
@@ -159,4 +137,13 @@ pre[class*="language-"] {
 	margin: 0;
   margin-bottom: 1em;
 
+}
+
+.pym-docs {
+  margin: 1em auto;
+  max-width: 46em;
+}
+
+.enlarge nav button {
+  font-size: 20px;
 }

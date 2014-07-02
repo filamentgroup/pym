@@ -1,40 +1,51 @@
-/* default cursor for the tau element */
-.tau {
-  cursor: -webkit-grab;
-  cursor: -moz-grab;
-  cursor: grab;
+/* enlarge component */
+.enlarge {
+	overflow: hidden;
+  position: relative;
 }
-
-/* loading should be hidden to start */
-.tau .loading {
-  display: none;
+.enlarge-zoom {
+	overflow: scroll;
+	position: relative;
+	-webkit-overflow-scrolling: touch;
+	margin-right: -20px;
+	margin-bottom: -20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
 }
-
-/* assist in preventing a drag */
-.tau img {
-  pointer-events: none;
-
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.enlarge-hovering .enlarge-zoom {
+	overflow: hidden;
 }
-
-/* hide all images except for the focused image once the plugin inits */
-.tau.enhanced img {
-  display: none;
+.enlarge img {
+	max-width: none;
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-webkit-transition: width .2s ease-out;
+	-moz-transition: width .2s ease-out;
+	-ms-transition: width .2s ease-out;
+	-o-transition: width .2s ease-out;
+	transition: width .2s ease-out;
 }
-
-/* display focused image */
-.tau img.focused {
-  display: block
+.enlarge-cropped img {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
-
-/* grabbing cursor for all elements on mousedown */
-html.grabbing * {
-  cursor: move;
-  cursor: -webkit-grabbing;
-  cursor: -moz-grabbing;
-  cursor: grabbing;
+.enlarge nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.enlarge nav button {
+	background: none;
+	-webkit-appearance: none;
+	width: auto;
+	white-space: nowrap;
+}
+.enlarge nav button:hover {
+	background: #ccc;
+	cursor: pointer;
+}
+.enlarge nav button:active {
+	background: #000;
+	color: #fff;
 }

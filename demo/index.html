@@ -1,31 +1,42 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Tau Demo</title>
-    <script src="../lib/shoestring-0.1.1.js"></script>
-    <script>
-      window.jQuery = window.shoestring;
-    </script>
-    <script src="../src/core.js"></script>
-    <script src="../src/path.js"></script>
-    <script src="../src/init.js"></script>
-    <link rel="stylesheet" href="../src/core.css">
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body class="docs">
-    <div class="header">
-      <a href="http://filamentgroup.com/"><h1 id="fg-logo">Filament Group</h1></a>
+	<head>
+		<title>Pym Demo</title>
+		<script src="../lib/shoestring-0.1.1.js"></script>
+		<script>
+			window.jQuery = window.shoestring;
+		</script>
+		<script src="../src/core.js"></script>
+		<script src="../src/init.js"></script>
+		<link rel="stylesheet" href="../src/core.css">
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body class="docs">
+		<div class="header">
+			<a href="http://filamentgroup.com/"><h1 id="fg-logo">Filament Group</h1></a>
+		</div>
+		<div class="pym-docs">
+			<p class="docs-intro">
+				This is the demo for a light-weight zoom library called Pym. Visit the <a href="https://github.com/filamentgroup/pym">Github project page</a> for documentation.
+			</p>
     </div>
-    <div class="tau-docs">
-      <p class="docs-intro">
-        This is the demo for a light-weight 360 degree image viewer called Tau. Visit the <a href="https://github.com/filamentgroup/tau">Github project page</a> for documentation.
-      </p>
 
-      <div class="tau" data-tau>
-        <img src="http://s7d9.scene7.com/is/image/LEGO/8258_s1?$PDPLarge$"
-             data-src-template="http://s7d9.scene7.com/is/image/LEGO/8258_s$FRAME?$PDPLarge$"
-             data-frames="72"></img>
-      </div>
-    </div>
-</body>
+		<div class="enlarge" data-pym>
+			<div class="enlarge-zoom">
+				<img src="http://cache.lego.com/e/dynamic/is/image/LEGO/60000?$small$"
+						 data-srcset="http://cache.lego.com/e/dynamic/is/image/LEGO/60000?$PDPLarge$ 900w,
+													http://cache.lego.com/e/dynamic/is/image/LEGO/60000?$medium$ 600w,
+													http://cache.lego.com/e/dynamic/is/image/LEGO/60000?$small$ 400w"
+						 data-sizes="(min-width: 64em) 645px, (min-width: 37.5em) 55vw, 100vw"
+						 data-enlarge-srcset="http://cache.lego.com/e/dynamic/is/image/LEGO/60000?$Full$ 1400w,
+																	http://cache.lego.com/e/dynamic/is/image/LEGO/60000?$PDPLarge$ 900w"
+						 data-enlarge-sizes="100vw"
+						 alt="Fireman, burning recycling container, and motorcycle">
+			</div>
+
+			<nav>
+				<button>Zoom In</button>
+			</nav>
+		</div>
+  </body>
 </html>
