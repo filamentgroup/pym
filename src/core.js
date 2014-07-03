@@ -113,7 +113,6 @@
 		}
 	};
 
-
 	enlarge.prototype.gestures = function() {
 		var lastTouchTime,
 			hoverDisable = false,
