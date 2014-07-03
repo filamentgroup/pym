@@ -22,6 +22,9 @@
 		this.zoomedText = options.zoomedText || "Zoom out";
 		this.classDefault = options.classDefault || componentName + "-in";
 		this.classZoomed = options.classZoomed || componentName + "-out";
+
+    this.init();
+		this.$element.data( "pym", this );
 	};
 
 	enlarge.prototype.setScale = function( val ) {
@@ -30,9 +33,12 @@
 		});
 	};
 
+  /* jshint expr: true */
 	enlarge.prototype.setMaxHeight = function(){
 		this.$scroller.css( "padding-top", this.$scroller[ 0 ].offsetHeight / this.$scroller[ 0 ].offsetWidth * 100 + "%" );
 		this.$element.addClass( "enlarge-cropped" );
+
+    // force reflow
 		this.$img[ 0 ].offsetLeft;
 	};
 
@@ -51,11 +57,12 @@
 	enlarge.prototype.out = function() {
 		this.$element.trigger( "enlarge-out" );
 		this.scale-= this.scaleFactor;
+
 		if( this.scale < this.minScale ){
 			this.scale = this.minScale;
 		}
 
-//		this.containerHeight( false );
+    // this.containerHeight( false );
 		this.setScale( this.scale );
 		this.buttonText( this.defaultText );
 		this.toggleClass( true );
@@ -64,10 +71,12 @@
 	enlarge.prototype.in = function() {
 		this.$element.trigger( "enlarge-in" );
 		this.scale+= this.scaleFactor;
+
 		if( this.scale > this.maxScale ){
 			this.scale = this.maxScale;
 		}
-		// this.containerHeight( true );
+
+    // this.containerHeight( true );
 		this.setScale( this.scale );
 		this.buttonText( this.zoomedText );
 		this.toggleClass( false );
@@ -86,7 +95,7 @@
 	enlarge.prototype.buttons = function(){
 		var self, $btn;
 
-		self = this,
+		self = this;
 		$btn = this.$element.find( "nav button" );
 
 		$btn.bind( "touchend mouseup",function( e ){
@@ -151,5 +160,5 @@
 	};
 
   // TODO sort out the naming discrepancy in here
-	(w.componentNamespace = w.componentNamespace || w)[ "Pym" ] = enlarge;
+	(w.componentNamespace = w.componentNamespace || w).Pym = enlarge;
 }( jQuery, this ));
