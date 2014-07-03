@@ -157,6 +157,8 @@ pre[class*="language-"] {
 	overflow: scroll;
 }
 
+/* syntax highlights */
+
 .css-property {
 	/* css-property */
 	color: #0000ee;
