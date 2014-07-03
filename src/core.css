@@ -1,8 +1,8 @@
 /* enlarge component */
 .enlarge {
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
+	position: relative;
+	box-sizing: border-box;
+	overflow-x: hidden;
 }
 
 .enlarge-zoom {
@@ -11,8 +11,8 @@
 }
 
 .enlarge-in {
-	overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .enlarge-hovering .enlarge-zoom {
