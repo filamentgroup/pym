@@ -20,6 +20,29 @@
 				This is the demo for a light-weight zoom library called Pym. Visit the <a href="https://github.com/filamentgroup/pym">Github project page</a> for documentation.
 			</p>
 
+      <h3>Height Constrained</h3>
+
+    <pre>
+<span class="css-selector">.constrained </span>{
+  <span class="css-property">height</span>: 500px;
+  <span class="css-property">overflow</span>: hidden;
+}
+
+<span class="css-selector">.constrained.enlarge-in </span>{
+  <span class="css-property">overflow</span>: scroll;
+}</pre>
+
+			<div class="enlarge constrained" data-pym>
+				<div class="enlarge-zoom">
+					<img src="demo.jpg" alt="A lady bug"></img>
+				</div>
+
+				<nav>
+					<button>Zoom In</button>
+				</nav>
+			</div>
+
+      <h3>Unconstrained</h3>
 			<div class="enlarge" data-pym>
 				<div class="enlarge-zoom">
 					<img src="demo.jpg" alt="A lady bug"></img>

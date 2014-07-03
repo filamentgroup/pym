@@ -1,25 +1,25 @@
 /* Logo */
 .header {
-  background: #247201 url(http://filamentgroup.com/images/headerbg-new.jpg) no-repeat bottom left;
+	background: #247201 url(http://filamentgroup.com/images/headerbg-new.jpg) no-repeat bottom left;
 }
 
 #fg-logo {
-  text-indent: -9999px;
-  margin: 0 auto;
-  width: 287px;
-  height: 52px;
-  background-image: url(http://filamentgroup.com/images/fg-logo-icon.png);
+	text-indent: -9999px;
+	margin: 0 auto;
+	width: 287px;
+	height: 52px;
+	background-image: url(http://filamentgroup.com/images/fg-logo-icon.png);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5){
-  #fg-logo {
-    background-size: 287px 52px;
-    background-image: url(http://filamentgroup.com/images/fg-logo-icon-lrg.png);
-  }
+	#fg-logo {
+		background-size: 287px 52px;
+		background-image: url(http://filamentgroup.com/images/fg-logo-icon-lrg.png);
+	}
 }
 /* Demo styles */
 body {
-  font-family: sans-serif;
-  font-size: 100%;
+	font-family: sans-serif;
+	font-size: 100%;
 }
 
 h1.docs,
@@ -27,11 +27,11 @@ h2.docs,
 h3.docs,
 h4.docs,
 h5.docs {
-  font-weight: 500;
-  margin: 1em 0;
-  text-transform: none;
-  color: #000;
-  clear: both;
+	font-weight: 500;
+	margin: 1em 0;
+	text-transform: none;
+	color: #000;
+	clear: both;
 }
 
 h1.docs { font-size: 2.8em; margin-top: .1em; text-transform: uppercase; }
@@ -45,38 +45,38 @@ ol.docs,
 ul.docs,
 p.docs-note,
 dl.docs {
-  margin: 1em 0;
-  font-size: 1em;
+	margin: 1em 0;
+	font-size: 1em;
 }
 
 ul.docs,
 ol.docs {
-  padding-bottom: .5em;
+	padding-bottom: .5em;
 }
 ol.docs li,
 ul.docs li {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 ul.docs ul,
 ol.docs ul {
-  padding-top: 8px;
+	padding-top: 8px;
 }
 .docs code {
-  font-size: 1.1em;
+	font-size: 1.1em;
 }
 
 p.docs strong {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .docs-note {
-  background-color: #FFFAA4;
+	background-color: #FFFAA4;
 }
 .docs-note p,
 .docs-note pre,
 p.docs-note {
-  padding: .5em;
-  margin: 0;
+	padding: .5em;
+	margin: 0;
 }
 
 
@@ -135,15 +135,43 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	padding: 1em;
 	margin: 0;
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 
 }
 
 .pym-docs {
-  margin: 1em auto;
-  max-width: 46em;
+	margin: 1em auto;
+	max-width: 46em;
 }
 
 .enlarge nav button {
-  font-size: 20px;
+	font-size: 20px;
+}
+
+.constrained {
+	height: 500px;
+	overflow: hidden;
+}
+
+.constrained.enlarge-in {
+	overflow: scroll;
+}
+
+.css-property {
+	/* css-property */
+	color: #0000ee;
+}
+.css-selector {
+	/* css-selector */
+	color: #0000ee;
+}
+
+a {
+	color: inherit;
+	background-color: inherit;
+	font: inherit;
+	text-decoration: inherit;
+}
+a:hover {
+	text-decoration: underline;
 }
