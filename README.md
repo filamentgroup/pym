@@ -6,16 +6,4 @@ Pym is a zoom library named after [Dr. Henry Jonathan "Hank" Pym](http://en.wiki
 
 You can see a demo [here](https://filamentgroup.github.io/pym/demo).
 
-
-
 <!-- ![Build status](https://api.travis-ci.org/filamentgroup/pym.svg) -->
-
-TODO make note of max size disable
-
-```css
-@media (min-width: 37.5em){
-	.enlarge nav {
-		display: none;
-	}
-}
-``
