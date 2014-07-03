@@ -40,12 +40,10 @@
 		if( set ){
 			if( this.scale === this.maxScale ){
 				this.$element.css( "height", this.$img[ 0 ].offsetHeight * this.scale + "px" );
-			}
-			else {
+			} else {
 				this.$element.css( "height", this.$img[ 0 ].offsetHeight / this.scale + "px" );
 			}
-		}
-		else {
+		} else {
 			this.$element.css( "height", "auto" );
 		}
 	};
@@ -104,8 +102,7 @@
 	enlarge.prototype.toggleZoom = function(){
 		if( this.scale === this.maxScale ){
 			this.out();
-		}
-		else {
+		} else {
 			this.in();
 		}
 	};
