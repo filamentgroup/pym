@@ -15,10 +15,6 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-.enlarge-hovering .enlarge-zoom {
-	overflow: hidden;
-}
-
 .enlarge img {
 	max-width: none;
 	width: 100%;
@@ -30,30 +26,8 @@
 	transition: width .2s ease-out;
 }
 
-.enlarge-cropped img {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
 .enlarge nav {
 	position: absolute;
 	left: 0;
 	top: 0;
-}
-
-.enlarge nav button {
-	-webkit-appearance: none;
-	width: auto;
-	white-space: nowrap;
-}
-
-.enlarge nav button:hover {
-	background: #ccc;
-	cursor: pointer;
-}
-
-.enlarge nav button:active {
-	background: #000;
-	color: #fff;
 }
