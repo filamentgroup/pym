@@ -54,7 +54,8 @@
 		if( this.scale < this.minScale ){
 			this.scale = this.minScale;
 		}
-		this.containerHeight( false );
+
+//		this.containerHeight( false );
 		this.setScale( this.scale );
 		this.buttonText( this.defaultText );
 		this.toggleClass( true );
@@ -66,7 +67,7 @@
 		if( this.scale > this.maxScale ){
 			this.scale = this.maxScale;
 		}
-		this.containerHeight( true );
+		// this.containerHeight( true );
 		this.setScale( this.scale );
 		this.buttonText( this.zoomedText );
 		this.toggleClass( false );

@@ -5,7 +5,6 @@
 }
 
 .enlarge-zoom {
-	overflow: scroll;
 	position: relative;
 	-webkit-overflow-scrolling: touch;
 	margin-right: -20px;
