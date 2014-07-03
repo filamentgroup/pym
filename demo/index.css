@@ -167,3 +167,14 @@ pre[class*="language-"] {
 	/* css-selector */
 	color: #0000ee;
 }
+
+.comment {
+  /* font-lock-comment-face */
+  color: #00cdcd;
+  font-style: italic;
+}
+.comment-delimiter {
+  /* font-lock-comment-delimiter-face */
+  color: #00cdcd;
+  font-style: italic;
+}
