@@ -92,7 +92,7 @@
 		this.$element.find( "button" ).html( val );
 	};
 
-  // TODO the name of this method is super confusing
+	// TODO the name of this method is super confusing given that it's parameterized
 	enlarge.prototype.toggleClass = function( out ){
 
 		// if we want to be zoomed out (i.e. out == true) then use the default class

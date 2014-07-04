@@ -54,4 +54,8 @@
 		instance.toggleClass( true );
 		ok( instance.$element.is(".enlarge-out") );
 	});
+
+	// TODO test isActive, possibly augment to override at the instance level
+	// TODO test double tap event behavior with stubs
+	// TODO test double click behavior
 })( jQuery, this );
