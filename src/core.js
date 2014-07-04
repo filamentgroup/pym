@@ -34,7 +34,7 @@
 	};
 
 	enlarge.prototype.setScale = function( val ) {
-		this.$img.css( {
+		this.$img.css({
 			"width": val * 100 + "%"
 		});
 	};
@@ -135,28 +135,31 @@
 			self = this;
 
 		// doubletap
-		this.$element
-			.bind( "touchstart", function(){
-				hoverDisable = true;
-			} )
-			.bind( "touchend", function( e ){
-				e = e.originalEvent || e;
-				hoverDisable = false;
-				if( $( e.target ).closest( "nav" ).length > 0 ){
-					return;
-				}
-				var thisTime = new Date().getTime();
-				if( lastTouchTime && thisTime - lastTouchTime < 300 ){
-					self.toggleIfActive( e );
-				}
-				lastTouchTime = thisTime;
-				e.preventDefault();
+		this.$element.bind( "touchstart", function(){
+			hoverDisable = true;
+		});
 
-			} )
-			.bind( "dblclick", function( e ){
+		this.$element.bind( "touchend", function( e ){
+			e = e.originalEvent || e;
+			hoverDisable = false;
+
+			if( $( e.target ).closest( "nav" ).length > 0 ){
+				return;
+			}
+
+			var thisTime = new Date().getTime();
+
+			if( lastTouchTime && thisTime - lastTouchTime < 300 ){
 				self.toggleIfActive( e );
-			} );
+			}
 
+			lastTouchTime = thisTime;
+			e.preventDefault();
+		});
+
+		this.$element.bind( "dblclick", function( e ){
+			self.toggleIfActive( e );
+		});
 	};
 
 	enlarge.prototype.init = function() {
