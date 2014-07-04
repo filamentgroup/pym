@@ -15,8 +15,18 @@
 		teardown: commonTeardown
 	});
 
+	test( "uses defaults", function() {
+    var overrides;
+
+    for( var property in Pym.defaults ) {
+      equal( instance[property], Pym.defaults[property] );
+    }
+	});
+
 	test( "override defaults", function() {
-		instance = new Pym( $("[data-pym]")[0], {
+    var overrides;
+
+		instance = new Pym( $("[data-pym]")[0], overrides = {
 			scaleFactor: 2,
 			buttonText: "foo",
 			zoomedButtonText: "bar",
@@ -24,8 +34,8 @@
 			zoomedClass: "bak"
 		});
 
-		equal(instance.buttonText, "foo" );
-		equal(instance.zoomedButtonText, "bar" );
-
+    for( var property in Pym.defaults ) {
+      equal( instance[property], overrides[property] );
+    }
 	});
 })( jQuery, this );

@@ -18,19 +18,8 @@
 		this.minScale = 1;
 		this.maxScale = 2;
 
-		// TODO
-		// $.extend( this, enlarge.defaults );
-		// $.extend( this, options );
-
-
-		this.scaleFactor = options.scaleFactor || enlarge.defaults.scaleFactor;
-
-		// TODO rename to provide meaning for where the text is used
-		this.buttonText = options.buttonText || enlarge.defaults.buttonText;
-		this.zoomedButtonText = options.zoomedButtonText || enlarge.defaults.zoomedButtonText;
-
-		this.classDefault = options.classDefault || enlarge.defaults.class;
-		this.classZoomed = options.classZoomed || enlarge.defaults.zoomedClass;
+		$.extend( this, enlarge.defaults );
+		$.extend( this, options );
 
 		this.init();
 		this.$element.data( "pym", this );
@@ -105,8 +94,8 @@
 
 	enlarge.prototype.toggleClass = function( out ){
 		this.$element
-			.removeClass( out ? this.classDefault : this.classZoomed )
-			.addClass( out ? this.classZoomed : this.classDefault );
+			.removeClass( out ? this.class : this.zoomedClass )
+			.addClass( out ? this.zoomedClass : this.class );
 	};
 
 	enlarge.prototype.buttons = function(){
