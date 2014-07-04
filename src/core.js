@@ -8,7 +8,7 @@
 			throw new Error( "Element required to initialize object" );
 		}
 
-    this.options = options = options || {};
+		this.options = options = options || {};
 
 		this.element = element;
 		this.$element = $( element );
@@ -17,14 +17,31 @@
 		this.scale = 1;
 		this.minScale = 1;
 		this.maxScale = 2;
-		this.scaleFactor = options.scaleFactor || 1;
-		this.defaultText = options.defaultText || "Zoom in";
-		this.zoomedText = options.zoomedText || "Zoom out";
-		this.classDefault = options.classDefault || componentName + "-in";
-		this.classZoomed = options.classZoomed || componentName + "-out";
 
-    this.init();
+		// TODO
+		// $.extend( this, enlarge.defaults );
+		// $.extend( this, options );
+
+
+		this.scaleFactor = options.scaleFactor || enlarge.defaults.scaleFactor;
+
+		// TODO rename to provide meaning for where the text is used
+		this.buttonText = options.buttonText || enlarge.defaults.buttonText;
+		this.zoomedButtonText = options.zoomedButtonText || enlarge.defaults.zoomedButtonText;
+
+		this.classDefault = options.classDefault || enlarge.defaults.class;
+		this.classZoomed = options.classZoomed || enlarge.defaults.zoomedClass;
+
+		this.init();
 		this.$element.data( "pym", this );
+	};
+
+	enlarge.defaults = {
+		scaleFactor: 1,
+		buttonText: "Zoom in",
+		zoomedButtonText: "Zoom out",
+		class: componentName + "-in",
+		zoomedClass: componentName + "-out"
 	};
 
 	enlarge.prototype.setScale = function( val ) {
@@ -64,7 +81,7 @@
 
     // this.containerHeight( false );
 		this.setScale( this.scale );
-		this.buttonText( this.defaultText );
+		this.buttonText( this.buttonText );
 		this.toggleClass( true );
 	};
 
@@ -78,7 +95,7 @@
 
     // this.containerHeight( true );
 		this.setScale( this.scale );
-		this.buttonText( this.zoomedText );
+		this.buttonText( this.zoomedButtonText );
 		this.toggleClass( false );
 	};
 
