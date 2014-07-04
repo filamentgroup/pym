@@ -39,12 +39,12 @@
 		});
 	};
 
-  /* jshint expr: true */
+	/* jshint expr: true */
 	enlarge.prototype.setMaxHeight = function(){
 		this.$scroller.css( "padding-top", this.$scroller[ 0 ].offsetHeight / this.$scroller[ 0 ].offsetWidth * 100 + "%" );
 		this.$element.addClass( "enlarge-cropped" );
 
-    // force reflow
+		// force reflow
 		this.$img[ 0 ].offsetLeft;
 	};
 
@@ -168,6 +168,6 @@
 		this.gestures();
 	};
 
-  // TODO sort out the naming discrepancy in here
+	// TODO sort out the naming discrepancy in here
 	(w.componentNamespace = w.componentNamespace || w).Pym = enlarge;
 }( jQuery, this ));
