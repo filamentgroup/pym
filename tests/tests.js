@@ -10,21 +10,21 @@
 	};
 	commonTeardown = function() {};
 
-	module( "constructor", {
+	module( "constructor", config = {
 		setup: commonSetup,
 		teardown: commonTeardown
 	});
 
 	test( "uses defaults", function() {
-    var overrides;
+		var overrides;
 
-    for( var property in Pym.defaults ) {
-      equal( instance[property], Pym.defaults[property] );
-    }
+		for( var property in Pym.defaults ) {
+			equal( instance[property], Pym.defaults[property] );
+		}
 	});
 
 	test( "override defaults", function() {
-    var overrides;
+		var overrides;
 
 		instance = new Pym( $("[data-pym]")[0], overrides = {
 			scaleFactor: 2,
@@ -34,8 +34,24 @@
 			zoomedClass: "bak"
 		});
 
-    for( var property in Pym.defaults ) {
-      equal( instance[property], overrides[property] );
-    }
+		for( var property in Pym.defaults ) {
+			equal( instance[property], overrides[property] );
+		}
+	});
+
+	test( "sets class to out", function() {
+		ok( instance.$element.is("." + Pym.defaults.class) );
+	});
+
+	module( "toggleClass", config );
+
+	test( "should swap the class on the main element", function() {
+		ok( instance.$element.is(".enlarge-out") );
+		instance.toggleClass();
+		ok( instance.$element.is(".enlarge-in") );
+
+		// TODO parameters to a toggle method are super confusing
+		instance.toggleClass( true );
+		ok( instance.$element.is(".enlarge-out") );
 	});
 })( jQuery, this );

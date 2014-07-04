@@ -29,8 +29,8 @@
 		scaleFactor: 1,
 		buttonText: "Zoom in",
 		zoomedButtonText: "Zoom out",
-		class: componentName + "-in",
-		zoomedClass: componentName + "-out"
+		class: componentName + "-out",
+		zoomedClass: componentName + "-in"
 	};
 
 	enlarge.prototype.setScale = function( val ) {
@@ -70,7 +70,7 @@
 
     // this.containerHeight( false );
 		this.setScale( this.scale );
-		this.buttonText( this.buttonText );
+		this.setButtonText( this.buttonText );
 		this.toggleClass( true );
 	};
 
@@ -84,18 +84,22 @@
 
     // this.containerHeight( true );
 		this.setScale( this.scale );
-		this.buttonText( this.zoomedButtonText );
+		this.setButtonText( this.zoomedButtonText );
 		this.toggleClass( false );
 	};
 
-	enlarge.prototype.buttonText = function( val ){
+	enlarge.prototype.setButtonText = function( val ){
 		this.$element.find( "button" ).html( val );
 	};
 
+  // TODO the name of this method is super confusing
 	enlarge.prototype.toggleClass = function( out ){
+
+		// if we want to be zoomed out (i.e. out == true) then use the default class
+		// otherwise use the zoomed class
 		this.$element
-			.removeClass( out ? this.class : this.zoomedClass )
-			.addClass( out ? this.zoomedClass : this.class );
+			.removeClass( out ? this.zoomedClass : this.class )
+			.addClass( out ? this.class : this.zoomedClass );
 	};
 
 	enlarge.prototype.buttons = function(){
