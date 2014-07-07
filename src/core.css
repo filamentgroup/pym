@@ -1,16 +1,14 @@
 /* enlarge component */
 .enlarge {
 	position: relative;
-	box-sizing: border-box;
-	overflow-x: hidden;
 }
 
 .enlarge-zoom {
-	position: relative;
-	-webkit-overflow-scrolling: touch;
+	overflow-x: hidden;
+	box-sizing: border-box;
 }
 
-.enlarge-in {
+.enlarge-in .enlarge-zoom {
 	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
 }

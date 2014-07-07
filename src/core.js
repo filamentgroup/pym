@@ -48,6 +48,7 @@
 		this.$img[ 0 ].offsetLeft;
 	};
 
+	// TODO remove once it's clear this is unnecesary
 	enlarge.prototype.containerHeight = function( set ){
 		if( set ){
 			if( this.scale === this.maxScale ){
@@ -68,7 +69,8 @@
 			this.scale = this.minScale;
 		}
 
-    // this.containerHeight( false );
+		// TODO remove once it's clear this is unnecesary
+		// this.containerHeight( false );
 		this.setScale( this.scale );
 		this.setButtonText( this.buttonText );
 		this.toggleClass( true );
@@ -82,7 +84,8 @@
 			this.scale = this.maxScale;
 		}
 
-    // this.containerHeight( true );
+		// TODO remove once it's clear this is unnecesary
+		// this.containerHeight( true );
 		this.setScale( this.scale );
 		this.setButtonText( this.zoomedButtonText );
 		this.toggleClass( false );
