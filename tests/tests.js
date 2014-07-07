@@ -81,7 +81,7 @@
 		}, 300);
 	});
 
-	module( "in/out", config );
+	module( "in", config );
 
   asyncTest( "triggers in event", function() {
     expect( 1 );
@@ -94,6 +94,18 @@
     instance.in();
   });
 
+  test( "sets scale to max", function() {
+    expect( 1 );
+
+    instance.setScale = function( scale ) {
+      equal(scale, instance.maxScale);
+    };
+
+    instance.in();
+  });
+
+	module( "out", config );
+
   asyncTest( "triggers out event", function() {
     expect( 1 );
 
@@ -101,6 +113,16 @@
       ok( true );
       start();
     });
+
+    instance.out();
+  });
+
+  test( "sets scale to min", function() {
+    expect( 1 );
+
+    instance.setScale = function( scale ) {
+      equal(scale, instance.minScale);
+    };
 
     instance.out();
   });
