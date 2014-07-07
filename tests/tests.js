@@ -80,4 +80,28 @@
 			start();
 		}, 300);
 	});
+
+	module( "in/out", config );
+
+  asyncTest( "triggers in event", function() {
+    expect( 1 );
+
+    instance.$element.bind( "enlarge-in", function() {
+      ok( true );
+      start();
+    });
+
+    instance.in();
+  });
+
+  asyncTest( "triggers out event", function() {
+    expect( 1 );
+
+    instance.$element.bind( "enlarge-out", function() {
+      ok( true );
+      start();
+    });
+
+    instance.out();
+  });
 })( jQuery, this );
