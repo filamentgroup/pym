@@ -1,9 +1,7 @@
 (function( $, w ) {
 	"use strict";
 
-	var componentName = "enlarge";
-
-	var enlarge = function( element, options ){
+	var Pym = function( element, options ){
 		if( !element ){
 			throw new Error( "Element required to initialize object" );
 		}
@@ -18,29 +16,29 @@
 		this.minScale = 1;
 		this.maxScale = 2;
 
-		$.extend( this, enlarge.defaults );
+		$.extend( this, Pym.defaults );
 		$.extend( this, options );
 
 		this.init();
 		this.$element.data( "pym", this );
 	};
 
-	enlarge.defaults = {
+	Pym.defaults = {
 		scaleFactor: 1,
 		buttonText: "Zoom in",
 		zoomedButtonText: "Zoom out",
-		class: componentName + "-out",
-		zoomedClass: componentName + "-in"
+		class: "enlarge-out",
+		zoomedClass: "enlarge-in"
 	};
 
-	enlarge.prototype.setScale = function( val ) {
+	Pym.prototype.setScale = function( val ) {
 		this.$img.css({
 			"width": val * 100 + "%"
 		});
 	};
 
 	/* jshint expr: true */
-	enlarge.prototype.setMaxHeight = function(){
+	Pym.prototype.setMaxHeight = function(){
 		this.$scroller.css( "padding-top", this.$scroller[ 0 ].offsetHeight / this.$scroller[ 0 ].offsetWidth * 100 + "%" );
 		this.$element.addClass( "enlarge-cropped" );
 
@@ -49,7 +47,7 @@
 	};
 
 	// TODO remove once it's clear this is unnecesary
-	enlarge.prototype.containerHeight = function( set ){
+	Pym.prototype.containerHeight = function( set ){
 		if( set ){
 			if( this.scale === this.maxScale ){
 				this.$element.css( "height", this.$img[ 0 ].offsetHeight * this.scale + "px" );
@@ -61,7 +59,7 @@
 		}
 	};
 
-	enlarge.prototype.out = function() {
+	Pym.prototype.out = function() {
 		this.$element.trigger( "enlarge-out" );
 		this.scale-= this.scaleFactor;
 
@@ -76,7 +74,7 @@
 		this.toggleClass( true );
 	};
 
-	enlarge.prototype.in = function() {
+	Pym.prototype.in = function() {
 		this.$element.trigger( "enlarge-in" );
 		this.scale+= this.scaleFactor;
 
@@ -91,12 +89,12 @@
 		this.toggleClass( false );
 	};
 
-	enlarge.prototype.setButtonText = function( val ){
+	Pym.prototype.setButtonText = function( val ){
 		this.$element.find( "button" ).html( val );
 	};
 
 	// TODO the name of this method is super confusing given that it's parameterized
-	enlarge.prototype.toggleClass = function( out ){
+	Pym.prototype.toggleClass = function( out ){
 
 		// if we want to be zoomed out (i.e. out == true) then use the default class
 		// otherwise use the zoomed class
@@ -105,7 +103,7 @@
 			.addClass( out ? this.class : this.zoomedClass );
 	};
 
-	enlarge.prototype.buttons = function(){
+	Pym.prototype.buttons = function(){
 		var self, $btn;
 
 		self = this;
@@ -118,11 +116,11 @@
 		});
 	};
 
-	enlarge.prototype.isActive = function(){
+	Pym.prototype.isActive = function(){
 		return window.getComputedStyle( this.$element.find( "nav" )[ 0 ] , null ).getPropertyValue( "display" ) !== "none";
 	};
 
-	enlarge.prototype.toggleZoom = function(){
+	Pym.prototype.toggleZoom = function(){
 		if( this.scale === this.maxScale ){
 			this.out();
 		} else {
@@ -130,13 +128,13 @@
 		}
 	};
 
-	enlarge.prototype.toggleIfActive = function( e ){
+	Pym.prototype.toggleIfActive = function( e ){
 		if( this.isActive() ){
 			this.toggleZoom();
 		}
 	};
 
-	enlarge.prototype.gestures = function() {
+	Pym.prototype.gestures = function() {
 		var lastTouchTime,
 			hoverDisable = false,
 			self = this;
@@ -169,12 +167,12 @@
 		});
 	};
 
-	enlarge.prototype.init = function() {
+	Pym.prototype.init = function() {
 		this.buttons();
 		this.toggleClass( true );
 		this.gestures();
 	};
 
 	// TODO sort out the naming discrepancy in here
-	(w.componentNamespace = w.componentNamespace || w).Pym = enlarge;
+	(w.componentNamespace = w.componentNamespace || w).Pym = Pym;
 }( jQuery, this ));
