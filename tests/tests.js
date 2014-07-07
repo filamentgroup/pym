@@ -55,7 +55,29 @@
 		ok( instance.$element.is(".enlarge-out") );
 	});
 
-	// TODO test isActive, possibly augment to override at the instance level
-	// TODO test double tap event behavior with stubs
-	// TODO test double click behavior
+	module( "double click", config );
+
+	test( "two taps toggles the state of the zoom", function() {
+		ok( instance.$element.is(".enlarge-out") );
+		instance.$element.trigger( "dblclick" );
+		ok( instance.$element.is(".enlarge-in") );
+		instance.$element.trigger( "dblclick" );
+		ok( instance.$element.is(".enlarge-out") );
+	});
+
+	module( "double tap", config );
+
+	asyncTest( "two taps toggles the state of the zoom", function() {
+		ok( instance.$element.is(".enlarge-out") );
+		instance.$element.trigger( "touchend" );
+		instance.$element.trigger( "touchend" );
+		ok( instance.$element.is(".enlarge-in") );
+
+		setTimeout(function() {
+			instance.$element.trigger( "touchend" );
+			instance.$element.trigger( "touchend" );
+			ok( instance.$element.is(".enlarge-out") );
+			start();
+		}, 300);
+	});
 })( jQuery, this );
