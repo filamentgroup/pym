@@ -1,9 +1,9 @@
 (function( window ) {
-  var $ = window.jQuery;
+	var $ = window.jQuery;
 
 	$(function(){
-    $( "[data-pym]" ).each(function() {
+		$( "[data-pym]" ).each(function() {
 			var pym =  new window.componentNamespace.Pym( this );
-    });
-  });
+		});
+	});
 })( this );
