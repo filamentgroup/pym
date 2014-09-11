@@ -68,7 +68,10 @@
 		}
 
 		// TODO remove once it's clear this is unnecesary
+		// NOTE if this is retained it's important to reassign `this.$img` before
+		// `containerHeight` is called since it might be changed by something like picturefill
 		// this.containerHeight( false );
+
 		this.setScale( this.scale );
 		this.setButtonText( this.buttonText );
 		this.toggleClass( true );
@@ -83,7 +86,10 @@
 		}
 
 		// TODO remove once it's clear this is unnecesary
+		// NOTE if this is retained it's important to reassign `this.$img` before
+		// `containerHeight` is called since it might be changed by something like picturefill
 		// this.containerHeight( true );
+
 		this.setScale( this.scale );
 		this.setButtonText( this.zoomedButtonText );
 		this.toggleClass( false );
