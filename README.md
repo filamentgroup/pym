@@ -1,3 +1,5 @@
+:warning: This project is archived and the repository is no longer maintained.
+
 # Pym
 
 [![Filament Group](http://filamentgroup.com/images/fg-logo-positive-sm-crop.png) ](http://www.filamentgroup.com/)
@@ -6,9 +8,4 @@ Pym is a zoom library named after [Dr. Henry Jonathan "Hank" Pym](http://en.wiki
 
 You can see a demo [here](https://filamentgroup.github.io/pym/demo).
 
-<!-- ![Build status](https://api.travis-ci.org/filamentgroup/pym.svg) -->
 
-## TODO
-
-1. more tests
-2. mouse drag
